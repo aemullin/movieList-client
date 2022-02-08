@@ -22851,7 +22851,7 @@ class MainView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","@parcel/transformer-js/src/esmodule-helpers.js":"hub2r","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"03fS5","../jpg/saw.jpg":"e9oZh","../jpg/avatar.jpg":"aDguL","../jpg/Terminator.jpg":"7k8fz"}],"6EiBJ":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","@parcel/transformer-js/src/esmodule-helpers.js":"hub2r","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"03fS5","../jpg/Terminator.jpg":"7k8fz","../jpg/saw.jpg":"e9oZh","../jpg/avatar.jpg":"aDguL"}],"6EiBJ":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$4249 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -23137,13 +23137,41 @@ class MovieView extends _reactDefault.default.Component {
                         })
                     ]
                 }),
+                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                    className: "director-name",
+                    __source: {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 21
+                    },
+                    __self: this,
+                    children: [
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                            className: "label",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 22
+                            },
+                            __self: this,
+                            children: "Director: "
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                            className: "value",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 23
+                            },
+                            __self: this,
+                            children: movie.Director.Name
+                        })
+                    ]
+                }),
                 /*#__PURE__*/ _jsxRuntime.jsx("button", {
                     onClick: ()=>{
                         onBackClick(null);
                     },
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 21
+                        lineNumber: 25
                     },
                     __self: this,
                     children: "Back"
@@ -23158,8 +23186,8 @@ class MovieView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"hub2r","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"03fS5"}],"e9oZh":[function(require,module,exports) {
-module.exports = require('./helpers/bundle-url').getBundleURL('3VpAv') + "saw.d41b4bcb.jpg";
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"hub2r","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"03fS5"}],"7k8fz":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('3VpAv') + "Terminator.279fdbaf.jpg";
 
 },{"./helpers/bundle-url":"5gTwH"}],"5gTwH":[function(require,module,exports) {
 "use strict";
@@ -23196,11 +23224,11 @@ exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 exports.getOrigin = getOrigin;
 
-},{}],"aDguL":[function(require,module,exports) {
-module.exports = require('./helpers/bundle-url').getBundleURL('3VpAv') + "avatar.88e52c31.jpg";
+},{}],"e9oZh":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('3VpAv') + "saw.d41b4bcb.jpg";
 
-},{"./helpers/bundle-url":"5gTwH"}],"7k8fz":[function(require,module,exports) {
-module.exports = require('./helpers/bundle-url').getBundleURL('3VpAv') + "Terminator.279fdbaf.jpg";
+},{"./helpers/bundle-url":"5gTwH"}],"aDguL":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('3VpAv') + "avatar.88e52c31.jpg";
 
 },{"./helpers/bundle-url":"5gTwH"}],"jUTZ8":[function() {},{}]},["3Bu0D","fqSgq","dLPEP"], "dLPEP", "parcelRequire321c")
 
