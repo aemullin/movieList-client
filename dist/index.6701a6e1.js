@@ -22758,7 +22758,7 @@ class MainView extends _reactDefault.default.Component {
                         "Bio": "James Francis Cameron is a Canadian filmmaker. Best known for making science fiction and epic films. Popular films include Avatar and Titanic.",
                         "Birth": "1954"
                     },
-                    "ImagePath": "../jpg/avatar.jpg",
+                    "ImagePath": require("../jpg/avatar.jpg"),
                     "Featured": true
                 },
                 {
@@ -22774,7 +22774,7 @@ class MainView extends _reactDefault.default.Component {
                         "Bio": "James Francis Cameron is a Canadian filmmaker. Best known for making science fiction and epic films. Popular films include Avatar and Titanic.",
                         "Birth": "1954"
                     },
-                    "ImagePath": "../jpg/Terminator.jpg",
+                    "ImagePath": require("../jpg/Terminator.jpg"),
                     "Featured": true
                 },
                 {
@@ -22790,7 +22790,7 @@ class MainView extends _reactDefault.default.Component {
                         "Bio": "James Wan is an Australian film producer, screenwriter and film director of Malaysian Chinese descent. He is widely known for directing horror films.",
                         "Birth": "1977"
                     },
-                    "ImagePath": "../jpg/saw.jpg",
+                    "ImagePath": require("../jpg/saw.jpg"),
                     "Featured": true
                 }
             ],
@@ -22851,7 +22851,7 @@ class MainView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","../movie-card/movie-card":"6EiBJ","@parcel/transformer-js/src/esmodule-helpers.js":"hub2r","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"03fS5","../movie-view/movie-view":"ikZdr"}],"6EiBJ":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","@parcel/transformer-js/src/esmodule-helpers.js":"hub2r","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"03fS5","../jpg/saw.jpg":"e9oZh","../jpg/avatar.jpg":"aDguL","../jpg/Terminator.jpg":"7k8fz"}],"6EiBJ":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$4249 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -23158,6 +23158,50 @@ class MovieView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"hub2r","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"03fS5"}],"jUTZ8":[function() {},{}]},["3Bu0D","fqSgq","dLPEP"], "dLPEP", "parcelRequire321c")
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"hub2r","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"03fS5"}],"e9oZh":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('3VpAv') + "saw.d41b4bcb.jpg";
+
+},{"./helpers/bundle-url":"5gTwH"}],"5gTwH":[function(require,module,exports) {
+"use strict";
+var bundleURL = {
+};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return '/';
+}
+function getBaseURL(url) {
+    return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
+} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ('' + url).match(/(https?|file|ftp):\/\/[^/]+/);
+    if (!matches) throw new Error('Origin not found');
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"aDguL":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('3VpAv') + "avatar.88e52c31.jpg";
+
+},{"./helpers/bundle-url":"5gTwH"}],"7k8fz":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('3VpAv') + "Terminator.279fdbaf.jpg";
+
+},{"./helpers/bundle-url":"5gTwH"}],"jUTZ8":[function() {},{}]},["3Bu0D","fqSgq","dLPEP"], "dLPEP", "parcelRequire321c")
 
 //# sourceMappingURL=index.6701a6e1.js.map
