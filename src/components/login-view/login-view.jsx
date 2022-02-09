@@ -15,18 +15,18 @@ export function LoginView(props) {
 
     return (
         <div>
-            <form>
+            <form className='form'>
                 <label className='form-label'>
-                    Username:
-                    <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
-                </label><br></br>
+                    Username:<span>  </span>
+                    <input type="text" className='form-input' placeholder='Enter Username' value={username} onChange={e => setUsername(e.target.value)} />
+                </label><br></br><br></br>
                 <label className='form-label'>
-                    Password:
-                    <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-                </label><br></br>
-                <button type="submit" onClick={handleSubmit}>Submit</button>
-            </form><br></br><br></br>
-            <button>No account? Click Here to Register</button>
+                    Password:<span>  </span>
+                    <input type="password" className='form-input' value={password} placeholder='Enter Password' onChange={e => setPassword(e.target.value)} />
+                </label><br></br><br></br>
+                <button type="submit" className='login-view-button' onClick={handleSubmit}>Submit</button><br></br><br></br>
+                <button className='login-view-button'>No account? Click Here to Register</button>
+            </form>
         </div>
     )
 }
