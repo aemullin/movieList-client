@@ -47,11 +47,6 @@
   text-align: center;
 }
 
-.movie-poster {
-  border: 4px solid slategray;
-  margin: 0px 600px 0px 600px;
-}
-
 .movie-info {
   border: 4px solid slategray;
   border-radius: 15px;
@@ -72,7 +67,7 @@
 }
 
 body {
-  background-color: black;
+  background-color: #050505;
 }
 
 .web-title {
