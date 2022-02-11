@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Stack from 'react-bootstrap/Stack';
 
 import './login-view.scss'
 
@@ -26,10 +25,8 @@ export function LoginView(props) {
                     <Form.Label>Password:</Form.Label>
                     <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
                 </Form.Group>
-                <Stack>
-                    <Button variant="primary" type="submit" onClick={handleSubmit}>Login</Button>
-                    <Button variant="secondary">No account? Sign up here!</Button>
-                </Stack>
+                <Button variant="primary" type="submit" onClick={handleSubmit}>Login</Button>
+                <Button variant="secondary">No account? Sign up here!</Button>
             </Form>
     );
 }
