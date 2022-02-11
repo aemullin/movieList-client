@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Stack from 'react-bootstrap/Stack';
 
 import './login-view.scss'
 
@@ -14,21 +17,21 @@ export function LoginView(props) {
     };
 
     return (
-        <div>
-            <form className='form'>
-                <label className='form-label'>
-                    Username:<span>  </span>
-                    <input type="text" className='form-input' placeholder='Enter Username' value={username} onChange={e => setUsername(e.target.value)} />
-                </label><br></br><br></br>
-                <label className='form-label'>
-                    Password:<span>  </span>
-                    <input type="password" className='form-input' value={password} placeholder='Enter Password' onChange={e => setPassword(e.target.value)} />
-                </label><br></br><br></br>
-                <button type="submit" className='login-view-button' onClick={handleSubmit}>Submit</button><br></br><br></br>
-                <button className='login-view-button'>No account? Click Here to Register</button>
-            </form>
-        </div>
-    )
+            <Form>
+                <Form.Group controlId="formUsername">
+                    <Form.Label>Username:</Form.Label>
+                    <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Password:</Form.Label>
+                    <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
+                </Form.Group>
+                <Stack>
+                    <Button variant="primary" type="submit" onClick={handleSubmit}>Login</Button>
+                    <Button variant="secondary">No account? Sign up here!</Button>
+                </Stack>
+            </Form>
+    );
 }
 
 LoginView.propTypes = {
