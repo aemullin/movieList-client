@@ -1,4 +1,6 @@
-
+.back-button {
+  float: left;
+}
 
 
 
@@ -6,7 +8,9 @@
 .movie-view {
   text-align: center;
 }
-
+.label {
+  font-weight: 600;
+}
 
 
 /*# sourceMappingURL=index.caa67093.css.map */
