@@ -8,7 +8,7 @@ import './index.scss'
 class MovieListApplication extends React.Component {
     render() {
         return (
-            <Container>
+            <Container fluid>
                 <MainView />
             </Container>
         );
