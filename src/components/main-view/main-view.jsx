@@ -118,7 +118,7 @@ export class MainView extends React.Component {
                             </Row>
                         )
                         
-                        return <Col md={8}>
+                        return <Col md={11}>
                             <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
                         </Col>
                     }} />
@@ -138,7 +138,7 @@ export class MainView extends React.Component {
                         )
 
                         return <Row className="main-view justify-content-md-center">
-                            <Col md={8}>
+                            <Col>
                                 <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} onBackClick={() => history.goBack()} />
                             </Col>
                         </Row>
@@ -178,9 +178,11 @@ export class MainView extends React.Component {
                             </Row>
                         )
 
-                        return <Col md={8}>
-                            <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()} />
-                        </Col>
+                        return <Row className="main-view justify-content-md-center">
+                            <Col md={12}>
+                                <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()} />
+                            </Col>
+                        </Row>
                     }} />
                     
                 </Row>

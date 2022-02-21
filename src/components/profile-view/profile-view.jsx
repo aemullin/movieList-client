@@ -128,6 +128,7 @@ export class ProfileView extends React.Component {
         return(
 
             <Container fluid>
+                <br/><Button variant="primary back-button" onClick={() => { onBackClick(); }} >Back</Button>
                 <Row className="justify-content-md-center">
                     <h1>{Username}'s Profile</h1>
                 </Row><br/> <br/>
@@ -166,10 +167,18 @@ export class ProfileView extends React.Component {
                     <h2>{Username}'s Favorite Movies</h2>
                 </Row>
                 <Row>
-                    {FavoriteMovies.map(movie =>
-                        <Col>
-                            <MovieCard movie={movie} />
-                        </Col>
+                    {movies.map((movie) => {
+                        if(
+                            movie._id === FavoriteMovies.find((fav) => fav === movie._id)
+                        ) {
+                            return (
+                                <Col md={2}>
+                                    <MovieCard movie={movie} />
+                                </Col>
+                            )
+                        }
+                    }
+                        
                     )}
                 </Row>
             </Container>

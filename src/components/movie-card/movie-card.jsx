@@ -9,24 +9,28 @@ import { Link } from 'react-router-dom';
 import './movie-card.scss'
 
 export class MovieCard extends React.Component {
-    onAddFavorite = (e,movie) => {
+    onAddFavorite = (e) => {
         e.preventDefault();
         const Username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
 
         axios.post(`https://movie-list-api-5858.herokuapp.com/users/${Username}/favorites/${this.props.movie._id}`, {
-            headers: {Authorization: `Bearer ${token}` }}
+            FavoriteMovies: this.props.movie._id
+        },
+         {
+            headers: { Authorization: `Bearer ${token}`}}
         )
         .then((response) => {
             console.log(response);
-            alert(`${movie.Title} added to favorites`);
+            alert(`${this.props.movie.Title} added to favorites`);
+            window.location.reload(false)
         })
         .catch(function (error) {
             console.log(error);
         });
     }
 
-    onRemoveFavorite = (e,movies) => {
+    onRemoveFavorite = (e) => {
         e.preventDefault();
         const Username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
@@ -36,13 +40,14 @@ export class MovieCard extends React.Component {
         )
         .then((response) => {
             console.log(response);
-            alert(`${movie.Title} removed from favorites`);
-            this.componentDidMount();
+            alert(`${this.props.movie.Title} removed from favorites`);
+            window.location.reload(false)
         })
         .catch(function (error) {
             console.log(error);
         });
     }
+
 
     render() {
         const { movie } = this.props;

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
+import axios from 'axios';
+import {Button, Row} from 'react-bootstrap';
 
 import { Link } from 'react-router-dom';
 
@@ -20,12 +21,53 @@ export class MovieView extends React.Component {
         document.removeEventListener('keypress', this.keypressCallback);
     }
 
+    onAddFavorite = (e,movie) => {
+        e.preventDefault();
+        const Username = localStorage.getItem('user');
+        const token = localStorage.getItem('token');
+
+        axios.post(`https://movie-list-api-5858.herokuapp.com/users/${Username}/favorites/${this.props.movie._id}`, {
+            FavoriteMovies: this.props.movie._id
+        }, 
+        {
+            headers: {Authorization: `Bearer ${token}` }}
+        )
+        .then((response) => {
+            console.log(response);
+            alert(`${this.props.movie.Title} added to favorites`);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
+
+    onRemoveFavorite = (e,movie) => {
+        e.preventDefault();
+        const Username = localStorage.getItem('user');
+        const token = localStorage.getItem('token');
+
+        axios.delete(`https://movie-list-api-5858.herokuapp.com/users/${Username}/favorites/${this.props.movie._id}`, {
+            headers: {Authorization: `Bearer ${token}` }}
+        )
+        .then((response) => {
+            console.log(response);
+            alert(`${this.props.movie.Title} removed from favorites`);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
+
 
     render() {
         const {movie, onBackClick} = this.props;
 
         return (
             <div className="movie-view">
+                <Row>
+                    <Button variant="primary back-button" onClick={() => { onBackClick(); }} >Back</Button>
+                </Row>
+                <br/>
                 <div >
                     <img  className="movie-poster" src={movie.ImagePath} crossOrigin="true" width='200px' height='300px' />
                 </div>
@@ -38,22 +80,23 @@ export class MovieView extends React.Component {
                             <span className="value">{movie.Description}</span>
                         </div>
                     </div>
-                    <div className='movie-genre'>
-                        <div>
-                            <span className="label">Genre: </span>
+                    <span className='movie-genre'>
+                        <span>
+                            <span className="label">Genre:</span>
                             <Link to={`/genre/${movie.Genre.Name}`}>
                                 <Button variant="link">{movie.Genre.Name}</Button>
                             </Link>
-                        </div>
-                    </div>    
-                    <div className="director-name">
-                        <span className="label">Director: </span>
+                        </span>
+                    </span>    
+                    <span className="director-name">
+                        <span className="label">Director:</span>
                         <Link to={`/directors/${movie.Director.Name}`}>
                             <Button variant="link">{movie.Director.Name}</Button>
                         </Link>
-                    </div>
+                    </span>
                 </div>
-                <Button variant="primary" onClick={() => { onBackClick(); }} >Back</Button>
+                <Button variant="secondary" onClick={this.onAddFavorite}>+ Favorites</Button>
+                <Button variant="danger" onClick={this.onRemoveFavorite}> - Favorites </Button>
             </div>
         );
     }
