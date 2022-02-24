@@ -18,7 +18,7 @@ import {ProfileView} from "../profile-view/profile-view";
 import {MovieView} from '../movie-view/movie-view';
 import {DirectorView} from '../director-view/director-view'
 import { GenreView } from '../genre-view/genre-view';
-import {Navbar} from '../nav-bar/nav-bar'
+import {Navbar} from '../nav-bar/nav-bar';
 
 import './main-view.scss'
 
