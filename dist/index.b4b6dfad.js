@@ -37226,108 +37226,109 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
-class Navbar extends _reactDefault.default.Component {
-    render() {
-        const onLogOut = ()=>{
-            localStorage.clear();
-            window.open("/", "_self");
-        };
-        const isAuth = ()=>{
-            if (typeof window == "undefined") return false;
-            if (localStorage.getItem("token")) return localStorage.getItem("token");
-            else return false;
-        };
-        return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar, {
-            className: "main-nav",
-            sticky: "top",
-            bg: "light",
-            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Container, {
-                fluid: true,
-                children: [
-                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar.Brand, {
-                        className: "navbar-logo",
-                        href: "/",
-                        children: "Movie List"
-                    }, void 0, false, {
+function Navbar({ user  }) {
+    const onLogOut = ()=>{
+        localStorage.clear();
+        window.open("/", "_self");
+    };
+    const isAuth = ()=>{
+        if (typeof window == "undefined") return false;
+        if (localStorage.getItem("token")) return localStorage.getItem("token");
+        else return false;
+    };
+    return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar, {
+        className: "main-nav",
+        sticky: "top",
+        bg: "light",
+        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Container, {
+            fluid: true,
+            children: [
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar.Brand, {
+                    className: "navbar-logo",
+                    href: "/",
+                    children: "Movie List"
+                }, void 0, false, {
+                    fileName: "src/components/nav-bar/nav-bar.jsx",
+                    lineNumber: 25,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar.Toggle, {
+                    "aria-controls": "responsive-navbar-nav"
+                }, void 0, false, {
+                    fileName: "src/components/nav-bar/nav-bar.jsx",
+                    lineNumber: 26,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar.Collapse, {
+                    id: "responsive-navbar-nav",
+                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav, {
+                        className: "ml-auto",
+                        children: [
+                            isAuth() && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
+                                href: `/profile`,
+                                children: [
+                                    user,
+                                    "'s profile"
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/nav-bar/nav-bar.jsx",
+                                lineNumber: 30,
+                                columnNumber: 29
+                            }, this),
+                            isAuth() && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
+                                variant: "secondary",
+                                onClick: ()=>{
+                                    onLogOut();
+                                },
+                                children: "Logout"
+                            }, void 0, false, {
+                                fileName: "src/components/nav-bar/nav-bar.jsx",
+                                lineNumber: 33,
+                                columnNumber: 29
+                            }, this),
+                            !isAuth() && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
+                                href: "/",
+                                children: "Sign-in"
+                            }, void 0, false, {
+                                fileName: "src/components/nav-bar/nav-bar.jsx",
+                                lineNumber: 36,
+                                columnNumber: 29
+                            }, this),
+                            !isAuth() && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
+                                variant: "primary",
+                                href: "/register",
+                                children: "Sign-up"
+                            }, void 0, false, {
+                                fileName: "src/components/nav-bar/nav-bar.jsx",
+                                lineNumber: 39,
+                                columnNumber: 29
+                            }, this)
+                        ]
+                    }, void 0, true, {
                         fileName: "src/components/nav-bar/nav-bar.jsx",
-                        lineNumber: 25,
-                        columnNumber: 21
-                    }, this),
-                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar.Toggle, {
-                        "aria-controls": "responsive-navbar-nav"
-                    }, void 0, false, {
-                        fileName: "src/components/nav-bar/nav-bar.jsx",
-                        lineNumber: 26,
-                        columnNumber: 21
-                    }, this),
-                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar.Collapse, {
-                        id: "responsive-navbar-nav",
-                        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav, {
-                            className: "ml-auto",
-                            children: [
-                                isAuth() && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
-                                    href: `/profile`,
-                                    children: [
-                                        user,
-                                        "'s profile"
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/components/nav-bar/nav-bar.jsx",
-                                    lineNumber: 30,
-                                    columnNumber: 33
-                                }, this),
-                                isAuth() && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
-                                    variant: "secondary",
-                                    onClick: ()=>{
-                                        onLogOut();
-                                    },
-                                    children: "Logout"
-                                }, void 0, false, {
-                                    fileName: "src/components/nav-bar/nav-bar.jsx",
-                                    lineNumber: 33,
-                                    columnNumber: 33
-                                }, this),
-                                !isAuth() && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
-                                    href: "/",
-                                    children: "Sign-in"
-                                }, void 0, false, {
-                                    fileName: "src/components/nav-bar/nav-bar.jsx",
-                                    lineNumber: 36,
-                                    columnNumber: 33
-                                }, this),
-                                !isAuth() && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
-                                    variant: "primary",
-                                    href: "/register",
-                                    children: "Sign-up"
-                                }, void 0, false, {
-                                    fileName: "src/components/nav-bar/nav-bar.jsx",
-                                    lineNumber: 39,
-                                    columnNumber: 33
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/components/nav-bar/nav-bar.jsx",
-                            lineNumber: 28,
-                            columnNumber: 25
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "src/components/nav-bar/nav-bar.jsx",
-                        lineNumber: 27,
+                        lineNumber: 28,
                         columnNumber: 21
                     }, this)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/nav-bar/nav-bar.jsx",
-                lineNumber: 24,
-                columnNumber: 17
-            }, this)
-        }, void 0, false, {
+                }, void 0, false, {
+                    fileName: "src/components/nav-bar/nav-bar.jsx",
+                    lineNumber: 27,
+                    columnNumber: 17
+                }, this)
+            ]
+        }, void 0, true, {
             fileName: "src/components/nav-bar/nav-bar.jsx",
-            lineNumber: 23,
+            lineNumber: 24,
             columnNumber: 13
-        }, this));
-    }
+        }, this)
+    }, void 0, false, {
+        fileName: "src/components/nav-bar/nav-bar.jsx",
+        lineNumber: 23,
+        columnNumber: 9
+    }, this));
 }
+_c = _reactBootstrap.Navbar;
+var _c;
+$RefreshReg$(_c, "Navbar");
 
   $parcel$ReactRefreshHelpers$9119.postlude(module);
 } finally {
