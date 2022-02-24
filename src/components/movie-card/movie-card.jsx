@@ -23,7 +23,6 @@ export class MovieCard extends React.Component {
         .then((response) => {
             console.log(response);
             alert(`${this.props.movie.Title} added to favorites`);
-            window.location.reload(false)
         })
         .catch(function (error) {
             console.log(error);

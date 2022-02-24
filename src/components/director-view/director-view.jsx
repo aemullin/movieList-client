@@ -11,9 +11,9 @@ export class DirectorView extends React.Component {
 
         return (
             <div className="director-view">
-                     <Row>
-                        <Button variant="primary back-button" onClick={() => { onBackClick(); }} >Back</Button>
-                    </Row>
+                <Row>
+                    <Button variant="primary back-button" onClick={() => { onBackClick(); }} >Back</Button>
+                </Row>
                 <br/>
                 <div className='director'>
                     <h2 className="director-name">

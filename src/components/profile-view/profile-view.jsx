@@ -128,7 +128,7 @@ export class ProfileView extends React.Component {
         return(
 
             <Container fluid>
-                <br/><Button variant="primary back-button" onClick={() => { onBackClick(); }} >Back</Button>
+                <br/><Button variant="primary back-button" onClick={() => { onBackClick(); }} >Back</Button><br/>
                 <Row className="justify-content-md-center">
                     <h1>{Username}'s Profile</h1>
                 </Row><br/> <br/>
@@ -176,7 +176,7 @@ export class ProfileView extends React.Component {
                                     <MovieCard movie={movie} />
                                 </Col>
                             )
-                        }
+                        } 
                     }
                         
                     )}

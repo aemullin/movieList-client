@@ -1,16 +1,25 @@
 import React from "react";
 import ReactDom from "react-dom";
-import { MainView } from './components/main-view/main-view';
 import Container from 'react-bootstrap/Container';
+import {createStore} from 'redux';
+import { Provider } from 'react-redux';
+import moviesApp from './reducers/reducers';
+import { devToolsEnhancer } from 'redux-devtools-extension';
+
+import MainView from './components/main-view/main-view';
 
 import './index.scss'
+
+const store = createStore(moviesApp, devToolsEnhancer());
 
 class MovieListApplication extends React.Component {
     render() {
         return (
-            <Container fluid>
-                <MainView />
-            </Container>
+            <Provider store={store}>
+                <Container fluid>
+                    <MainView />
+                </Container>
+            </Provider>
         );
     }
 }
