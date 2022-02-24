@@ -26698,7 +26698,7 @@ class MainView extends _reactDefault.default.Component {
         const { user: user1  } = this.state;
         return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.BrowserRouter, {
             children: [
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_navBar.Navbar, {
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_navBar.Menubar, {
                     user: user1
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
@@ -37220,13 +37220,13 @@ $parcel$ReactRefreshHelpers$9119.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Navbar", ()=>Navbar
+parcelHelpers.export(exports, "Menubar", ()=>Menubar
 );
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
-function Navbar({ user  }) {
+function Menubar({ user  }) {
     const onLogOut = ()=>{
         localStorage.clear();
         window.open("/", "_self");
@@ -37326,9 +37326,9 @@ function Navbar({ user  }) {
         columnNumber: 9
     }, this));
 }
-_c = _reactBootstrap.Navbar;
+_c = Menubar;
 var _c;
-$RefreshReg$(_c, "Navbar");
+$RefreshReg$(_c, "Menubar");
 
   $parcel$ReactRefreshHelpers$9119.postlude(module);
 } finally {

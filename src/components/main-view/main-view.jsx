@@ -18,7 +18,7 @@ import {ProfileView} from "../profile-view/profile-view";
 import {MovieView} from '../movie-view/movie-view';
 import {DirectorView} from '../director-view/director-view'
 import { GenreView } from '../genre-view/genre-view';
-import {Navbar} from '../nav-bar/nav-bar';
+import {Menubar} from '../nav-bar/nav-bar';
 
 import './main-view.scss'
 
@@ -77,7 +77,7 @@ export class MainView extends React.Component {
         
         return (
             <Router>
-                <Navbar user={user} />
+                <Menubar user={user} />
                <Row className="main-view justify-content-md-center">
                     <Route exact path ="/" render={() => {
                         if (!user) return (
