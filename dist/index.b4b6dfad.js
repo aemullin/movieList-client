@@ -26591,7 +26591,7 @@ function setMovies(value) {
 }
 function setFilter(value) {
     return {
-        type: SET - FILTER,
+        type: SET_FILTER,
         value
     };
 }
@@ -30840,7 +30840,7 @@ const mapStateToProps = (state)=>{
 function MoviesList(props) {
     const { movies , visibilityFilter  } = props;
     let filteredMovies = movies;
-    if (visibilityFilter !== '') filteredMovies = movies.filter((m)=>m.title.toLowerCase().includes(visibilityFilter.toLowercase())
+    if (visibilityFilter !== '') filteredMovies = movies.filter((m)=>m.Title.toLowerCase().includes(visibilityFilter.toLowerCase())
     );
     if (!movies) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
         className: "main-view"
@@ -36096,9 +36096,38 @@ function RegistrationView(props) {
     const [password, setPassword] = _react.useState('');
     const [email, setEmail] = _react.useState('');
     const [birthday, setBirthday] = _react.useState('');
+    const [usernameError, setUsernameError] = _react.useState('');
+    const [passwordError, setPasswordError] = _react.useState('');
+    const [emailError, setEmailError] = _react.useState('');
+    const validate = ()=>{
+        let isReq = true;
+        if (!username) {
+            setUsernameError('Username is Required');
+            isReq = false;
+        } else if (username < 5) {
+            setUsernameError('Username must be at least 5 characters long');
+            isReq = false;
+        }
+        if (!password) {
+            setPasswordError('Password is Required');
+            isReq = false;
+        } else if (password.length < 8) {
+            setPasswordError('Password must be at least 8 characters long');
+            isReq = false;
+        }
+        if (!email) {
+            setEmailError('Email is required');
+            isReq = false;
+        } else if (email.indexOf('@') === -1) {
+            setEmailError('Email is not valid');
+            isReq = false;
+        }
+        return isReq;
+    };
     const handleSubmit = (e)=>{
         e.preventDefault();
-        _axiosDefault.default.post('https://movie-list-api-5858.herokuapp.com/users', {
+        const isReq = validate();
+        if (isReq) _axiosDefault.default.post('https://movie-list-api-5858.herokuapp.com/users', {
             Username: username,
             Password: password,
             Email: email,
@@ -36117,7 +36146,7 @@ function RegistrationView(props) {
                 children: "Sign up for Movie List"
             }, void 0, false, {
                 fileName: "src/components/registration-view/registration-view.jsx",
-                lineNumber: 36,
+                lineNumber: 74,
                 columnNumber: 12
             }, this),
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default, {
@@ -36129,7 +36158,7 @@ function RegistrationView(props) {
                                 children: "Username:"
                             }, void 0, false, {
                                 fileName: "src/components/registration-view/registration-view.jsx",
-                                lineNumber: 39,
+                                lineNumber: 77,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
@@ -36137,13 +36166,21 @@ function RegistrationView(props) {
                                 onChange: (e)=>setUsername(e.target.value)
                             }, void 0, false, {
                                 fileName: "src/components/registration-view/registration-view.jsx",
-                                lineNumber: 40,
+                                lineNumber: 78,
                                 columnNumber: 21
+                            }, this),
+                            usernameError && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                                className: "error",
+                                children: usernameError
+                            }, void 0, false, {
+                                fileName: "src/components/registration-view/registration-view.jsx",
+                                lineNumber: 79,
+                                columnNumber: 39
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/registration-view/registration-view.jsx",
-                        lineNumber: 38,
+                        lineNumber: 76,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Group, {
@@ -36153,7 +36190,7 @@ function RegistrationView(props) {
                                 children: "Password:"
                             }, void 0, false, {
                                 fileName: "src/components/registration-view/registration-view.jsx",
-                                lineNumber: 43,
+                                lineNumber: 82,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
@@ -36161,13 +36198,21 @@ function RegistrationView(props) {
                                 onChange: (e)=>setPassword(e.target.value)
                             }, void 0, false, {
                                 fileName: "src/components/registration-view/registration-view.jsx",
-                                lineNumber: 44,
+                                lineNumber: 83,
                                 columnNumber: 21
+                            }, this),
+                            passwordError && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                                className: "error",
+                                children: passwordError
+                            }, void 0, false, {
+                                fileName: "src/components/registration-view/registration-view.jsx",
+                                lineNumber: 84,
+                                columnNumber: 39
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/registration-view/registration-view.jsx",
-                        lineNumber: 42,
+                        lineNumber: 81,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Group, {
@@ -36177,7 +36222,7 @@ function RegistrationView(props) {
                                 children: "Email:"
                             }, void 0, false, {
                                 fileName: "src/components/registration-view/registration-view.jsx",
-                                lineNumber: 47,
+                                lineNumber: 87,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
@@ -36185,13 +36230,21 @@ function RegistrationView(props) {
                                 onChange: (e)=>setEmail(e.target.value)
                             }, void 0, false, {
                                 fileName: "src/components/registration-view/registration-view.jsx",
-                                lineNumber: 48,
+                                lineNumber: 88,
                                 columnNumber: 21
+                            }, this),
+                            emailError && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                                className: "error",
+                                children: emailError
+                            }, void 0, false, {
+                                fileName: "src/components/registration-view/registration-view.jsx",
+                                lineNumber: 89,
+                                columnNumber: 36
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/registration-view/registration-view.jsx",
-                        lineNumber: 46,
+                        lineNumber: 86,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Group, {
@@ -36201,7 +36254,7 @@ function RegistrationView(props) {
                                 children: "Birthday:"
                             }, void 0, false, {
                                 fileName: "src/components/registration-view/registration-view.jsx",
-                                lineNumber: 51,
+                                lineNumber: 92,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
@@ -36209,13 +36262,13 @@ function RegistrationView(props) {
                                 onChange: (e)=>setBirthday(e.target.value)
                             }, void 0, false, {
                                 fileName: "src/components/registration-view/registration-view.jsx",
-                                lineNumber: 52,
+                                lineNumber: 93,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/registration-view/registration-view.jsx",
-                        lineNumber: 50,
+                        lineNumber: 91,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
@@ -36224,23 +36277,23 @@ function RegistrationView(props) {
                         children: "Submit"
                     }, void 0, false, {
                         fileName: "src/components/registration-view/registration-view.jsx",
-                        lineNumber: 54,
+                        lineNumber: 95,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/registration-view/registration-view.jsx",
-                lineNumber: 37,
+                lineNumber: 75,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/registration-view/registration-view.jsx",
-        lineNumber: 35,
+        lineNumber: 73,
         columnNumber: 8
     }, this));
 }
-_s(RegistrationView, "udPSEdM3oIRVsWGmuo3FUEvpd4s=");
+_s(RegistrationView, "j+15sMB8Ltun+SGTP2Kqc2B+08w=");
 _c = RegistrationView;
 RegistrationView.propTypes = {
     user: _propTypesDefault.default.shape({
