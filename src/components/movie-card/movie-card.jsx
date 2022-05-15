@@ -10,55 +10,53 @@ import './movie-card.scss'
 
 export class MovieCard extends React.Component {
 
+    
+
+    onAddFavorite = (e) => {
+        e.preventDefault();
+        const Username = localStorage.getItem('user');
+        const token = localStorage.getItem('token');
+        toggleFavorite((prev) => !prev);
+
+        axios.post(`https://movie-list-api-5858.herokuapp.com/users/${Username}/favorites/${this.props.movie._id}`, {
+            FavoriteMovies: this.props.movie._id
+        },
+         {
+            headers: { Authorization: `Bearer ${token}`}}
+        )
+        .then((response) => {
+            console.log(response);
+            alert(`${this.props.movie.Title} added to favorites`);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
+
+    onRemoveFavorite = (e) => {
+        e.preventDefault();
+        const Username = localStorage.getItem('user');
+        const token = localStorage.getItem('token');
+        toggleFavorite((prev) => !prev);
+
+        axios.delete(`https://movie-list-api-5858.herokuapp.com/users/${Username}/favorites/${this.props.movie._id}`, {
+            headers: {Authorization: `Bearer ${token}` }}
+        )
+        .then((response) => {
+            console.log(response);
+            alert(`${this.props.movie.Title} removed from favorites`);
+            window.location.reload(false)
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
 
 
     render() {
         const [isFavorite, toggleFavorite] = useState(false);
-        const { movie } = this.props;
-
         
-
-        onAddFavorite = (e) => {
-            e.preventDefault();
-            const Username = localStorage.getItem('user');
-            const token = localStorage.getItem('token');
-            toggleFavorite((prev) => !prev);
-    
-            axios.post(`https://movie-list-api-5858.herokuapp.com/users/${Username}/favorites/${this.props.movie._id}`, {
-                FavoriteMovies: this.props.movie._id
-            },
-             {
-                headers: { Authorization: `Bearer ${token}`}}
-            )
-            .then((response) => {
-                console.log(response);
-                alert(`${this.props.movie.Title} added to favorites`);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-        }
-    
-        onRemoveFavorite = (e) => {
-            e.preventDefault();
-            const Username = localStorage.getItem('user');
-            const token = localStorage.getItem('token');
-            toggleFavorite((prev) => !prev);
-    
-            axios.delete(`https://movie-list-api-5858.herokuapp.com/users/${Username}/favorites/${this.props.movie._id}`, {
-                headers: {Authorization: `Bearer ${token}` }}
-            )
-            .then((response) => {
-                console.log(response);
-                alert(`${this.props.movie.Title} removed from favorites`);
-                window.location.reload(false)
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-        }
-
-
+        const { movie } = this.props;
         return (
             <Card className="text-center" height="600px">
                 <div className="card-poster text-center">
