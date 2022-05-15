@@ -15,7 +15,7 @@ export class MovieCard extends React.Component {
     render() {
         const { movie } = this.props;
 
-        const [isFavorite, toggleFavorite] = this.setState(false)
+        const [isFavorite, toggleFavorite] = useState(false)
 
         onAddFavorite = (e) => {
             e.preventDefault();
