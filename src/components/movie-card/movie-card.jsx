@@ -67,6 +67,7 @@ export class MovieCard extends React.Component {
         
         
         const { movie } = this.props;
+        const {isFavorite} = this.state;
         return (
             <Card className="text-center" height="600px">
                 <div className="card-poster text-center">
