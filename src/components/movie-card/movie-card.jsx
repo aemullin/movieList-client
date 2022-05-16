@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
@@ -9,14 +9,22 @@ import { Link } from 'react-router-dom';
 import './movie-card.scss'
 
 export class MovieCard extends React.Component {
-
+    constructor(){
+        super();
+        this.state = {
+            isFavorite: false
+        };
+    }
     
 
     onAddFavorite = (e) => {
         e.preventDefault();
         const Username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
-        toggleFavorite((prev) => !prev);
+        this.setState({
+            isFavorite: true
+        });
+        
 
         axios.post(`https://movie-list-api-5858.herokuapp.com/users/${Username}/favorites/${this.props.movie._id}`, {
             FavoriteMovies: this.props.movie._id
@@ -37,7 +45,9 @@ export class MovieCard extends React.Component {
         e.preventDefault();
         const Username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
-        toggleFavorite((prev) => !prev);
+        this.setState({
+            isFavorite: false
+        });
 
         axios.delete(`https://movie-list-api-5858.herokuapp.com/users/${Username}/favorites/${this.props.movie._id}`, {
             headers: {Authorization: `Bearer ${token}` }}
@@ -54,7 +64,7 @@ export class MovieCard extends React.Component {
 
 
     render() {
-        const [isFavorite, toggleFavorite] = useState(false);
+        
         
         const { movie } = this.props;
         return (
@@ -67,7 +77,7 @@ export class MovieCard extends React.Component {
                     <Link to={`/movies/${movie._id}`}>
                         <Button variant="primary">Open</Button>
                     </Link>
-                    {isFavorite ? <Button variant="danger" onClick={this.onRemoveFavorite}> - Favorites </Button> : <Button variant="secondary" onClick={this.onAddFavorite}>+ Favorites</Button>}
+                    {!isFavorite ? <Button variant="secondary" onClick={this.onAddFavorite}>+ Favorites</Button> : <Button variant="danger" onClick={this.onRemoveFavorite}> - Favorites </Button>}
                     
                     
                 </Card.Body>
